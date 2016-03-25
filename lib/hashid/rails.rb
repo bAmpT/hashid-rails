@@ -57,6 +57,10 @@ module Hashid
       def find(hashid)
         model_reload? ? super(hashid) : super( decode_id(hashid) || hashid )
       end
+      
+      def find_by_hashid(hashid)
+        model_reload? ? super(hashid) : super( decode_id(hashid) )
+      end
 
       private
 
